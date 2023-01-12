@@ -1,5 +1,6 @@
 #include <opencv2/opencv.hpp>
 #include <iostream>
+<<<<<<< HEAD
 #include <vector>
 
 std::vector<double> fitPolynomial(std::vector<cv::Point> points, int degree)
@@ -29,6 +30,8 @@ std::vector<double> fitPolynomial(std::vector<cv::Point> points, int degree)
     return coeffs;
 }
 
+=======
+>>>>>>> 8380879030bf4d69efb8a1c1c341d1e81faf7307
 
 std::vector<std::vector<cv::Point>> process_image(cv::Mat image) {
     // Dilate and erode to eliminate noise and connect intermittent lane lines
@@ -47,7 +50,11 @@ std::vector<std::vector<cv::Point>> process_image(cv::Mat image) {
         // Extract x and y values from the contour
         if (contour.size() > 2) {
           std::vector<cv::Point> points;
+<<<<<<< HEAD
           int step = 1;
+=======
+          int step = contour.size()/50;
+>>>>>>> 8380879030bf4d69efb8a1c1c341d1e81faf7307
           for(int i = 0; i< contour.size(); i+=step) {
             points.push_back(contour[i]);
           }
@@ -68,6 +75,7 @@ int main(int argc, char const *argv[]) {
     for (auto & lane : lane_lines) {
         for (int i = 0; i < lane.size() - 1; i++) {
             cv::line(color_image, lane[i], lane[i + 1], cv::Scalar(0, 0, 255), 2);
+<<<<<<< HEAD
             cv::circle(color_image, lane[i], 3, cv::Scalar(0, 255, 0), -1);
         }
         cv::line(color_image, lane[lane.size() - 1], lane[0], cv::Scalar(0, 0, 255), 2);
@@ -77,6 +85,11 @@ int main(int argc, char const *argv[]) {
 
     // cv::imshow("Image", color_image);
     // cv::waitKey(0);
+=======
+        }
+        cv::line(color_image, lane[lane.size() - 1], lane[0], cv::Scalar(0, 0, 255), 2);
+    }
+>>>>>>> 8380879030bf4d69efb8a1c1c341d1e81faf7307
     cv::imwrite("output.png", color_image);
     return 0;
 }
