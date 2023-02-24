@@ -1,5 +1,5 @@
-#ifndef POLY1D_HPP
-#define POLY1D_HPP
+#ifndef POLYFIT_HPP
+#define POLYFIT_HPP
 
 #include <opencv2/opencv.hpp>
 #include <vector>
@@ -23,6 +23,6 @@ private:
     double calculateError(const std::vector<cv::Point>& points, const std::vector<double>& coeffs);
 };
 
-std::vector<std::vector<cv::Point>> process_image(cv::Mat image);
+std::vector<std::vector<cv::Point>> seg_to_points(cv::Mat image);
 
 #endif

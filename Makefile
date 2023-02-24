@@ -5,8 +5,8 @@ CXXFLAGS = -I$(PandaBusLibs_PATH)/include/opencv-4.1.0/opencv4/ -I./ -L$(PandaBu
 TARGET = main
 all: clean $(TARGET)
 
-$(TARGET): main.cpp ImageUtil.cpp ImageUtil.hpp
-	$(CXX) main.cpp ImageUtil.cpp -o $(TARGET) $(CXXFLAGS)
+$(TARGET): main.cpp Polyfit.cpp Polyfit.hpp
+	$(CXX) main.cpp Polyfit.cpp -o $(TARGET) $(CXXFLAGS)
 
 run: $(TARGET)
 	export LD_LIBRARY_PATH="${$LD_LIBRARY_PATH}:${PandaBusLibs_PATH}/lib/opencv-4.1.0_cuda-11.1/"

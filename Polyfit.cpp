@@ -1,4 +1,4 @@
-#include "ImageUtil.hpp"
+#include "Polyfit.hpp"
 #include <cmath>
 #include <iostream>
 
@@ -71,7 +71,7 @@ double poly1d::calculateError(const std::vector<cv::Point>& points, const std::v
     return sum_squared_error;
 }
 
-std::vector<std::vector<cv::Point>> process_image(cv::Mat image) {
+std::vector<std::vector<cv::Point>> seg_to_points(cv::Mat image) {
     // Dilate and erode to eliminate noise and connect intermittent lane lines
     int kernel_size = 8;
     cv::Mat kernel = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(kernel_size, kernel_size));

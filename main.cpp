@@ -1,5 +1,5 @@
 #include <opencv2/opencv.hpp>
-#include "ImageUtil.hpp"
+#include "Polyfit.hpp"
 
 cv::Scalar randomColor(cv::RNG& rng)
 {
@@ -22,7 +22,7 @@ int main(int argc, char const *argv[]) {
     cv::cvtColor(image, color_image, cv::COLOR_GRAY2BGR);
 
     // Process the image to extract fitted lane lines
-    std::vector<std::vector<cv::Point>> results = process_image(image);
+    std::vector<std::vector<cv::Point>> results = seg_to_points(image);
 
     // Simple visualization
     cv::RNG rng(0xFFFFFFFF);
