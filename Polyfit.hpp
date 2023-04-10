@@ -4,11 +4,11 @@
 #include <opencv2/opencv.hpp>
 #include <vector>
 
-// Declare the poly1d class
-class poly1d {
+// Declare the Poly1D class
+class Poly1D {
 public:
     // Constructor that takes a vector of cv::Point objects and a degree
-    poly1d(const std::vector<cv::Point> &points, int degree);
+    Poly1D(const std::vector<cv::Point> &points, int degree);
 
     // Returns a vector of cv::Point objects with a uniform spacing
     std::vector<cv::Point> getUniformPoints(double dist = 15) const;
@@ -24,19 +24,16 @@ public:
 
 private:
     // Vector to store the coefficients of the polynomial fit
-    std::vector<double> coeffs;
+    std::vector<double> coeffs_;
 
     // Stores the sum squared error of the polynomial fit
-    double error;
+    double error_;
 
     // Stores the minimum and maximum x and y values of the input points
-    double minX, maxX, minY, maxY;
+    double min_x_, max_x_, min_y_, max_y_;
 
     // Helper function to calculate the sum squared error of the polynomial fit
     double calculateError(const std::vector<cv::Point>& points, const std::vector<double>& coeffs);
 };
-
-// Function to convert a segmented image to a vector of vectors of cv::Point objects
-std::vector<std::vector<cv::Point>> seg_to_points(cv::Mat image);
 
 #endif
